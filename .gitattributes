@@ -1,0 +1,38 @@
+# .gitattributes — normalize line endings and mark binaries
+
+# Set default behaviour to automatically normalize line endings.
+* text=auto
+
+# Force LF for common text files used in this repo
+.gitattributes text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cs text eol=lf
+*.asmdef text eol=lf
+*.meta text eol=lf
+*.shader text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+
+# Treat common binary file formats as binary so Git doesn't attempt to normalize them
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.tga binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.fbx binary
+*.obj binary
+*.dll binary
+*.exe binary
+*.unitypackage binary
+*.zip binary
+*.apk binary
+*.aab binary
+*.jar binary
