@@ -29,12 +29,12 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+ x64/
+ x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
-bld/
+ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
@@ -407,7 +407,9 @@ FodyWeavers.xsd
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-/[Ll]ibrary/
+#
+# Ignore Library folders anywhere in the project tree
+[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
