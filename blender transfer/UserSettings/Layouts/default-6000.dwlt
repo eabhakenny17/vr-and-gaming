@@ -401,7 +401,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 1099511661592
+    m_rawData: 0
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 43
+    y: 0
     width: 1920
     height: 36
   m_SerializedDataModeController:
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 678
+    y: 623
     width: 1489
     height: 308
   m_SerializedDataModeController:
@@ -800,13 +800,7 @@ MonoBehaviour:
       m_rawData: 1099511660833
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 6442450943
-    - m_rawData: 1099511654310
-    - m_rawData: 1099511656868
-    - m_rawData: 1099511660748
-    - m_rawData: 1099511660753
-    - m_rawData: 1099511660757
-    - m_rawData: 1099511660765
+    - m_rawData: 1099511654338
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -840,7 +834,7 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 1099511654310
+    - m_rawData: 1099511654338
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -928,8 +922,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1490
-    y: 79
+    x: 1491
+    y: 24
     width: 429
     height: 907
   m_SerializedDataModeController:
@@ -980,8 +974,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 382
-    y: 79
+    x: 383
+    y: 24
     width: 1106
     height: 573
   m_SerializedDataModeController:
@@ -1607,7 +1601,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.013627012, y: 0.9853217, z: -0.09519048, w: -0.14106345}
     speed: 2
-    m_Value: {x: -0.0136269815, y: 0.9853195, z: -0.095190264, w: -0.14106314}
+    m_Value: {x: -0.013626984, y: 0.9853195, z: -0.095190264, w: -0.14106314}
   m_Size:
     m_Target: 2.3834462
     speed: 2
@@ -1819,7 +1813,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 381
     height: 573
   m_SerializedDataModeController:
