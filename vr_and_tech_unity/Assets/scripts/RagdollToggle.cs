@@ -1,38 +1,67 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using StarterAssets;
 
-public class RagdollToggle : MonoBehaviour
+public class CharacterRagdoll : MonoBehaviour
 {
-    public KeyCode toggleKey = KeyCode.R;   // test key
+    // Drag the CharacterController here in the Inspector (it's on the character root)
+    public CharacterController characterController;
 
-    private bool _ragdolled;
-    private Animator _animator;
-    private CharacterController _cc;
-    private ThirdPersonController _tpc;
-    private Rigidbody[] _bodies;
+    // We'll fill this with every bone Rigidbody on the character
+    private Rigidbody[] boneRigidbodies;
 
-    void Start()
+    // Reference to the Animator that's driving the walking/idle animations
+    private Animator animator;
+
+    // The ThirdPersonController must be disabled too, otherwise it keeps calling
+    // CharacterController.Move() on the disabled capsule every frame
+    private ThirdPersonController thirdPersonController;
+
+    private void Awake()
     {
-        _animator = GetComponentInChildren<Animator>();
-        _cc = GetComponent<CharacterController>();
-        _tpc = GetComponent<ThirdPersonController>();
-        _bodies = GetComponentsInChildren<Rigidbody>();
-        Apply(false);                        // start in normal mode
+        // Find all Rigidbodies on the character and its children
+        boneRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        // Grab the Animator
+        animator = GetComponentInChildren<Animator>();
+
+        // Grab the ThirdPersonController (it's on this same GameObject)
+        thirdPersonController = GetComponent<ThirdPersonController>();
+
+        // Start with ragdoll OFF
+        SetRagdollActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(toggleKey)) Apply(!_ragdolled);
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            Activate();
+        }
     }
 
-    void Apply(bool ragdoll)
+    public void Activate()
     {
-        _ragdolled = ragdoll;
-        if (_animator) _animator.enabled = !ragdoll;
-        if (_cc) _cc.enabled = !ragdoll;
-        if (_tpc) _tpc.enabled = !ragdoll;
+        SetRagdollActive(true);
+    }
 
-        foreach (var rb in _bodies)
-            rb.isKinematic = !ragdoll;        // wizard bones only (non-tagged ones)
+    private void SetRagdollActive(bool isActive)
+    {
+        // Turn off the animator when ragdolling — animation and physics fight otherwise
+        if (animator != null) animator.enabled = !isActive;
+
+        // Turn off the ThirdPersonController too — while it's enabled it would keep
+        // calling Move() on the disabled capsule, spamming "CharacterController.Move
+        // called on inactive controller" every frame
+        if (thirdPersonController != null) thirdPersonController.enabled = !isActive;
+
+        // Turn off the CharacterController when ragdolling — its capsule shoves the bones around otherwise
+        if (characterController != null) characterController.enabled = !isActive;
+
+        // Flip every bone's kinematic state
+        foreach (Rigidbody rb in boneRigidbodies)
+        {
+            rb.isKinematic = !isActive;
+        }
     }
 }
