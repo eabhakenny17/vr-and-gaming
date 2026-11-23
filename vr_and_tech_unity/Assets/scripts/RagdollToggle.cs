@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
 
-public class CharacterRagdoll : MonoBehaviour
+public class RagdollToggle : MonoBehaviour
 {
     // Drag the CharacterController here in the Inspector (it's on the character root)
     public CharacterController characterController;
@@ -21,6 +21,9 @@ public class CharacterRagdoll : MonoBehaviour
 
     private void Awake()
     {
+        if (characterController == null)
+            characterController = GetComponent<CharacterController>();
+
         // Find all Rigidbodies on the character and its children
         boneRigidbodies = GetComponentsInChildren<Rigidbody>();
 
