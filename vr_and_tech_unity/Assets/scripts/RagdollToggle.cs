@@ -17,6 +17,8 @@ public class CharacterRagdoll : MonoBehaviour
     // CharacterController.Move() on the disabled capsule every frame
     private ThirdPersonController thirdPersonController;
 
+    private bool ragDolled;
+
     private void Awake()
     {
         // Find all Rigidbodies on the character and its children
@@ -42,11 +44,13 @@ public class CharacterRagdoll : MonoBehaviour
 
     public void Activate()
     {
-        SetRagdollActive(true);
+        SetRagdollActive(!ragDolled);
     }
 
     private void SetRagdollActive(bool isActive)
     {
+        ragDolled = isActive;
+        
         // Turn off the animator when ragdolling — animation and physics fight otherwise
         if (animator != null) animator.enabled = !isActive;
 
