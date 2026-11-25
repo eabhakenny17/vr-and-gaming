@@ -9,7 +9,7 @@ public class FlipAudio : MonoBehaviour
 
     void Update(){
         //don't flip if you're laready flipping
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Armature_Flip"))
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("FlipBlendTree"))
         return;
 
         if(Keyboard.current.fKey.wasPressedThisFrame){
