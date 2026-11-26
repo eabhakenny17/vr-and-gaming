@@ -19,8 +19,7 @@ public class FlipAudio : MonoBehaviour
         }
 
         if (ramping){
-            float v = Mathf.MoveTowards(anim.GetFloat("FlipBlend"), 1f,
-                                        Time.deltaTime / 0.2f);
+            float v = Mathf.MoveTowards(anim.GetFloat("FlipBlend"), 1f, Time.deltaTime / 0.1f);
             anim.SetFloat("FlipBlend", v);
             if (v >= 1f) ramping = false;
         }
