@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 135756642000475821, guid: 522f326222018f741a0b556476721a67, type: 3}
       propertyPath: analogMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 330661732970559858, guid: 522f326222018f741a0b556476721a67, type: 3}
       propertyPath: m_Layer

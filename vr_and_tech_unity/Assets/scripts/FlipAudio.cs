@@ -9,7 +9,7 @@ public class FlipAudio : MonoBehaviour
 
     void Update(){
         //don't flip if you're laready flipping
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Armature_Flip"))
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("FlipBlendTree"))
         return;
 
         if(Keyboard.current.fKey.wasPressedThisFrame){
@@ -19,8 +19,7 @@ public class FlipAudio : MonoBehaviour
         }
 
         if (ramping){
-            float v = Mathf.MoveTowards(anim.GetFloat("FlipBlend"), 1f,
-                                        Time.deltaTime / 0.2f);
+            float v = Mathf.MoveTowards(anim.GetFloat("FlipBlend"), 1f, Time.deltaTime / 0.1f);
             anim.SetFloat("FlipBlend", v);
             if (v >= 1f) ramping = false;
         }
